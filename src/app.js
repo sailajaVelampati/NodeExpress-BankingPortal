@@ -7,7 +7,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 app.use(express.static(path.join(__dirname, "public")));
-
+app.use(express.urlencoded({ extended: true }));
 const accountData = fs.readFileSync("src/json/accounts.json", {
   encoding: "utf8",
 });
@@ -29,6 +29,7 @@ const users = JSON.parse(userData);
 app.get("/profile", (req, res) => {
   res.render("profile", { user: users[0] });
 });
+
 app.get("/", (req, res) => {
   res.render("index", { title: "Account Summary", accounts: accounts });
 });
