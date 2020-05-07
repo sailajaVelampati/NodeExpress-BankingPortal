@@ -12,6 +12,9 @@ const accountData = fs.readFileSync("src/json/accounts.json", {
   encoding: "utf8",
 });
 const accounts = JSON.parse(accountData);
+app.get('/savings',(req,res){
+    res.render({title:'account',account:accounts.savings});
+})
 
 const userData = fs.readFileSync("src/json/users.json", {
   encoding: "utf8",
