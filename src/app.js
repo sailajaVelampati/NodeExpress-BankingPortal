@@ -13,13 +13,13 @@ const accountData = fs.readFileSync("src/json/accounts.json", {
 });
 const accounts = JSON.parse(accountData);
 app.get("/savings", (req, res) => {
-  res.render({ title: "account", account: accounts.savings });
+  res.render("index", { title: "account", account: accounts.savings });
 });
 app.get("/checking", (req, res) => {
-  res.render({ title: "account", account: accounts.checking });
+  res.render("index", { title: "account", account: accounts.checking });
 });
 app.get("/credit", (req, res) => {
-  res.render({ title: "account", account: accounts.credit });
+  res.render("index", { title: "account", account: accounts.credit });
 });
 
 const userData = fs.readFileSync("src/json/users.json", {
