@@ -38,6 +38,7 @@ app.post("/transfer", (req, res) => {
     accounts[req.body.from].balance - req.body.amount;
   accounts[req.body.to].balance =
     parseInt(accounts[req.body.to].balance) + parseInt(req.body.amount, 10);
+  const accountsJSON = JSON.stringify(accounts);
 });
 
 app.get("/", (req, res) => {
