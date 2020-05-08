@@ -10,16 +10,6 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/savings", (req, res) => {
-  res.render("account", { title: "account", account: accounts.savings });
-});
-app.get("/checking", (req, res) => {
-  res.render("account", { title: "account", account: accounts.checking });
-});
-app.get("/credit", (req, res) => {
-  res.render("account", { title: "account", account: accounts.credit });
-});
-
 app.get("/profile", (req, res) => {
   res.render("profile", { user: users[0] });
 });
