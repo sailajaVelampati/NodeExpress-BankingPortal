@@ -47,6 +47,25 @@ app.post("/transfer", (req, res) => {
   res.render("transfer", { message: "Transfer Completed" });
 });
 
+app.get("/payment", (req, res) => {
+  res.render("payment", { account: accounts.credit });
+});
+app.post("/payment", (req, res) => {
+  accounts.credit.balance = req.body.amount - accounts.credit.balance;
+  accounts.credit.available =
+    parseInt(req.body.amount) + parseInt(accounts.credit.available);
+  const accountsJSON = JSON.stringify(accounts);
+  fs.writeFileSync(
+    path.join(__dirname, "json/accounts.json"),
+    accountsJSON,
+    "UTF8"
+  );
+  res.render("payment", {
+    message: "Payment Successful",
+    account: accounts.credit,
+  });
+});
+
 app.get("/", (req, res) => {
   res.render("index", { title: "Account Summary", accounts: accounts });
 });
