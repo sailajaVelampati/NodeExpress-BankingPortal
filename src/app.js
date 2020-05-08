@@ -44,6 +44,7 @@ app.post("/transfer", (req, res) => {
     accountsJSON,
     "UTF8"
   );
+  res.render("transfer", { message: "Transfer Completed" });
 });
 
 app.get("/", (req, res) => {
