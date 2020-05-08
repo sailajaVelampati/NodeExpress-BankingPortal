@@ -27,4 +27,4 @@ router.post("/payment", (req, res) => {
     account: accounts.credit,
   });
 });
-module.exports.router = router();
+module.exports = router;
