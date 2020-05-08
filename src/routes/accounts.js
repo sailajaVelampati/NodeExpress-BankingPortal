@@ -12,4 +12,4 @@ router.get("/credit", (req, res) => {
   res.render("account", { title: "account", account: accounts.credit });
 });
 
-module.exports.router = router;
+module.exports.router = router();
