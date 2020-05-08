@@ -33,7 +33,12 @@ app.get("/profile", (req, res) => {
 app.get("/transfer", (req, res) => {
   res.render("transfer");
 });
-app.post("/transfer", (req, res) => {});
+app.post("/transfer", (req, res) => {
+  accounts[req.body.from].balance =
+    accounts[req.body.from].balance - req.body.amount;
+  accounts[req.body.to].balance =
+    parseInt(accounts[req.body.to].balance) + parseInt(req.body.amount, 10);
+});
 
 app.get("/", (req, res) => {
   res.render("index", { title: "Account Summary", accounts: accounts });
