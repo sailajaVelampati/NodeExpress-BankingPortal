@@ -33,6 +33,7 @@ app.get("/profile", (req, res) => {
 app.get("/transfer", (req, res) => {
   res.render("transfer");
 });
+app.post("/transfer", (req, res) => {});
 
 app.get("/", (req, res) => {
   res.render("index", { title: "Account Summary", accounts: accounts });
