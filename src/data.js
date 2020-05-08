@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
-
+const accountData = {};
+const userData = {};
 const accounts = fs.readFileSync("src/json/accounts.json", {
   encoding: "utf8",
 });
